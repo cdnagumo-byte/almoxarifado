@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Controle de Estoque — NAGUMO · MIXTER · EPI · SUPRIMENTOS</title>
+<title>Controle de Estoque — NAGUMO · MIXTER</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -18,13 +18,7 @@
   --radius:8px;--radius-lg:12px;--radius-xl:16px;
 }
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5}
-.topbar{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(2,54,101,.25);gap:16px}
-.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.topbar-search{flex:1;max-width:420px;position:relative}
-.topbar-search input{width:100%;padding:7px 12px 7px 34px;font-size:13px;border:1.5px solid rgba(255,255,255,.18);border-radius:var(--radius);background:rgba(255,255,255,.1);color:#fff;font-family:inherit;outline:none;transition:border-color .2s,background .2s}
-.topbar-search input::placeholder{color:rgba(255,255,255,.4)}
-.topbar-search input:focus{border-color:var(--cyan);background:rgba(255,255,255,.16);box-shadow:0 0 0 3px rgba(60,203,219,.15)}
-.topbar-search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.45);pointer-events:none}
+.topbar{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(2,54,101,.25)}
 .logo{display:flex;align-items:center;gap:12px}
 .logo-icon{width:34px;height:34px;background: transparent;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.2px;line-height:1}
@@ -33,66 +27,53 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .store-pill{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px}
 .sp-nagumo{background:var(--red);color:#fff}
 .sp-mixter{background:var(--cyan);color:var(--navy)}
-.sp-epi{background:#7C3AED;color:#fff}
-.sp-suprimentos{background:#0e7c4a;color:#fff}
-.save-ind{font-size:11px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:5px;transition:color .3s}
-.sync-spinner{width:10px;height:10px;border:2px solid rgba(255,255,255,.3);border-top-color:var(--cyan);border-radius:50%;display:none;animation:spin .7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+.save-ind{font-size:11px;color:rgba(255,255,255,.4)}
 .topbar-date{font-size:12px;color:rgba(255,255,255,.4);margin-left:2px}
-.hero{background:linear-gradient(135deg,var(--navy) 0%,#034a8a 60%,#045a9e 100%);padding:1.25rem 2rem 1.5rem;border-bottom:3px solid var(--red);position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#034a8a 60%,#045a9e 100%);padding:1.5rem 2rem;border-bottom:3px solid var(--red);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:rgba(60,203,219,.08);pointer-events:none}
 .hero::after{content:'';position:absolute;right:80px;bottom:-80px;width:180px;height:180px;border-radius:50%;background:rgba(212,1,56,.06);pointer-events:none}
 .hero-inner{max-width:1280px;margin:0 auto;position:relative}
-.hero-title{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.4px}
+.hero-title{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.4px}
 .hero-title span{color:var(--cyan)}
-.hero-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:3px}
 .main{max-width:1280px;margin:0 auto;padding:1.5rem 2rem 3rem}
-.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:1.25rem}
-.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem .875rem;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:box-shadow .2s,transform .2s}
-.metric-card:hover{box-shadow:0 3px 12px rgba(0,0,0,.09);transform:translateY(-1px)}
-.metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0}
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;margin-bottom:1.5rem}
+.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.125rem;position:relative;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:box-shadow .2s,transform .2s}
+.metric-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);transform:translateY(-1px)}
+.metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.metric-card::after{content:'';position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:36px;opacity:.07;font-family:serif}
 .mc-navy::before{background:var(--navy)}.mc-navy{border-top-color:var(--navy)}
 .mc-red::before{background:var(--red)}.mc-red{border-top-color:var(--red)}
 .mc-cyan::before{background:var(--cyan-dark)}.mc-cyan{border-top-color:var(--cyan-dark)}
 .mc-green::before{background:var(--green)}.mc-green{border-top-color:var(--green)}
 .mc-amber::before{background:#7C3AED}.mc-amber{border-top-color:#7C3AED}
-.mc-black::before{background:#111}.mc-black{border-top-color:#111}
-.metric-icon-wrap{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;margin-bottom:.4rem;font-size:14px}
+.mc-amber .metric-icon-wrap{background:#ede9fe}
+.mc-amber .metric-val{color:#7C3AED}
+.metric-icon-wrap{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;margin-bottom:.6rem;font-size:17px}
 .mc-navy .metric-icon-wrap{background:var(--navy-light)}
 .mc-red .metric-icon-wrap{background:var(--red-light)}
 .mc-cyan .metric-icon-wrap{background:var(--cyan-light)}
 .mc-green .metric-icon-wrap{background:var(--green-light)}
-.mc-amber .metric-icon-wrap{background:#ede9fe}
-.mc-black .metric-icon-wrap{background:#f0f0f0}
-.metric-label{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;font-weight:600}
-.metric-val{font-size:22px;font-weight:800;letter-spacing:-1px;line-height:1;color:#111}
-.metric-sub{font-size:9px;color:var(--text3);margin-top:3px}
-.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:1.25rem;padding:.75rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.mc-amber .metric-icon-wrap{background:var(--amber-light)}
+.metric-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;font-weight:600}
+.metric-val{font-size:26px;font-weight:800;letter-spacing:-1px;line-height:1}
+.mc-navy .metric-val{color:var(--navy)}
+.mc-red .metric-val{color:var(--red)}
+.mc-cyan .metric-val{color:var(--cyan-dark)}
+.mc-green .metric-val{color:var(--green)}
+.mc-amber .metric-val{color:#7C3AED}
+.metric-val.navy{color:var(--navy)}.metric-val.red{color:var(--red)}.metric-val.cyan{color:var(--cyan-dark)}.metric-val.green{color:var(--green)}
+.metric-sub{font-size:10px;color:var(--text3);margin-top:4px}
+.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:1.25rem;padding:.875rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.04)}
 .tab-group{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;flex-shrink:0}
-.tab{padding:7px 18px;font-size:13px;font-weight:600;cursor:pointer;background:transparent;border:none;color:var(--text2);font-family:inherit;transition:background .15s,color .15s;white-space:nowrap}
+.tab{padding:7px 18px;font-size:13px;font-weight:600;cursor:pointer;background:transparent;border:none;color:var(--text2);font-family:inherit;transition:background .15s,color .15s}
 .tab:not(:last-child){border-right:1px solid var(--border)}
-/* NAGUMO - vermelho */
-.tab-nagumo{color:var(--red)}
-.tab-nagumo.active{background:var(--red);color:#fff}
-.tab-nagumo:hover:not(.active){background:var(--red-light);color:var(--red)}
-/* MIXTER - verde */
-.tab-mixter{color:#0e7c4a}
-.tab-mixter.active{background:#0e7c4a;color:#fff}
-.tab-mixter:hover:not(.active){background:var(--green-light);color:#0e7c4a}
-/* EPI - azul escuro */
-.tab-epi{color:var(--navy)}
-.tab-epi.active{background:var(--navy);color:#fff}
-.tab-epi:hover:not(.active){background:var(--navy-light);color:var(--navy)}
-/* SUPRIMENTOS - azul claro, fonte escura */
-.tab-supr{color:var(--cyan-dark)}
-.tab-supr.active{background:var(--cyan);color:var(--navy)}
-.tab-supr:hover:not(.active){background:var(--cyan-light);color:var(--cyan-dark)}
-/* TODOS - cinza neutro */
-.tab-todos{color:var(--text2)}
-.tab-todos.active{background:#4a5568;color:#fff}
-.tab-todos:hover:not(.active){background:#f0f2f5;color:#4a5568}
-/* Search bar (hidden in controls - moved to topbar) */
-.search-wrap{display:none}
+.tab.active{background:var(--navy);color:#fff}
+.tab:hover:not(.active){background:var(--navy-light);color:var(--navy)}
+.search-wrap{flex:1;min-width:180px;position:relative}
+.search-wrap input{width:100%;padding:7px 10px 7px 34px;font-size:13px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);font-family:inherit;outline:none;transition:border-color .15s}
+.search-wrap input:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(2,54,101,.1)}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none}
 select.filter-sel{padding:7px 10px;font-size:13px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);font-family:inherit;cursor:pointer;outline:none}
 .btn-action{display:flex;align-items:center;gap:6px;padding:7px 14px;font-size:13px;font-weight:600;border-radius:var(--radius);font-family:inherit;cursor:pointer;transition:background .15s;white-space:nowrap;border:none}
 .btn-new{background:var(--navy);color:#fff}.btn-new:hover{background:var(--navy-dark)}
@@ -184,16 +165,16 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
 .btn-row-del:hover{background:var(--red);border-color:var(--red);color:#fff;transform:scale(1.1)}
 .empty-state{padding:3.5rem;text-align:center;color:var(--text3);font-size:13px}
 .empty-icon{font-size:40px;margin-bottom:.75rem;opacity:.3;display:block}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(2,54,101,.5);z-index:200;align-items:center;justify-content:center;padding:1rem;overflow-y:auto}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(2,54,101,.5);z-index:200;align-items:center;justify-content:center;padding:1rem}
 .modal-overlay.open{display:flex}
-.modal{background:var(--surface);border-radius:var(--radius-xl);width:100%;max-width:440px;box-shadow:0 24px 60px rgba(2,54,101,.2);overflow:hidden;max-height:calc(100vh - 2rem);display:flex;flex-direction:column;margin:auto}
-.modal-head{background:var(--navy);padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal{background:var(--surface);border-radius:var(--radius-xl);width:100%;max-width:440px;box-shadow:0 24px 60px rgba(2,54,101,.2);overflow:hidden}
+.modal-head{background:var(--navy);padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
 .modal-head-title{font-size:15px;font-weight:700;color:#fff}
 .modal-head-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
-.modal-close{width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .15s;flex-shrink:0}
+.modal-close{width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .15s}
 .modal-close:hover{background:rgba(255,255,255,.15)}
-.modal-body{padding:1.5rem;overflow-y:auto;flex:1}
-.modal-foot{padding:1rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end;flex-shrink:0}
+.modal-body{padding:1.5rem}
+.modal-foot{padding:1rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end}
 .field-group{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
 .field-group:last-child{margin-bottom:0}
 .field-group label{font-size:12px;font-weight:600;color:var(--text2)}
@@ -244,36 +225,7 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
 .backup-section p{font-size:12px;color:var(--text2);margin-bottom:10px}
 .toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--navy);color:#fff;padding:10px 18px;border-radius:var(--radius);font-size:13px;font-weight:600;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;z-index:300;pointer-events:none;border-left:4px solid var(--cyan)}
 .toast.show{opacity:1;transform:translateY(0)}
-@media(max-width:768px){
-  .main,.hero{padding-left:1rem;padding-right:1rem}
-  .topbar{padding:0 1rem;gap:10px}
-  .topbar-search{max-width:200px}
-  .metrics-grid{grid-template-columns:repeat(2,1fr)}
-  .hero-title{font-size:16px}
-  .controls{gap:6px;padding:.6rem .75rem}
-  .tab{padding:6px 10px;font-size:11px}
-  .btn-action{padding:6px 10px;font-size:12px}
-  table{font-size:12px}
-  thead th{padding:8px 8px;font-size:9px}
-  tbody td{padding:7px 8px}
-  .table-container{border-radius:var(--radius)}
-}
-@media(max-width:480px){
-  .metrics-grid{grid-template-columns:repeat(2,1fr);gap:6px}
-  .topbar-search{display:none}
-  .controls{flex-direction:column;align-items:stretch}
-  .search-wrap{display:block!important;width:100%;position:relative}
-  .search-wrap input{width:100%;padding:8px 10px 8px 34px;font-size:13px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);font-family:inherit;outline:none}
-  .search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none}
-  .tab-group{width:100%}
-  .tab{flex:1;text-align:center;padding:7px 4px;font-size:10px}
-  .btn-action{width:100%;justify-content:center}
-  select.filter-sel{width:100%}
-  .topbar-right .store-pill{display:none}
-  .hero{padding:.875rem 1rem}
-  .hero-title{font-size:15px}
-  .main{padding:.875rem 1rem 2rem}
-}
+@media(max-width:640px){.main,.topbar,.hero{padding-left:1rem;padding-right:1rem}.metrics-grid{grid-template-columns:repeat(2,1fr)}.hero-title{font-size:16px}}
 
 .logo-icon img {
   width: 100%;
@@ -294,15 +246,8 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
       <div class="logo-sub">Controle de Estoque</div>
     </div>
   </div>
-  <div class="topbar-search">
-    <svg class="topbar-search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
-      <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>
-    <input type="text" id="search" placeholder="Buscar por descrição ou PLU..." oninput="render()">
-  </div>
   <div class="topbar-right">
-    <span class="save-ind" id="saveInd"><span class="sync-spinner" id="syncSpinner"></span><span id="saveIndText">&#9679; salvo</span></span>
+    <span class="save-ind" id="saveInd">&#9679; salvo</span>
     <span class="store-pill sp-nagumo">NAGUMO</span>
     <span class="store-pill sp-mixter">MIXTER</span>
     <span class="topbar-date" id="topDate"></span>
@@ -319,21 +264,18 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
 <div class="main">
   <div class="metrics-grid" id="metrics"></div>
 
-    <div class="controls">
+  <div class="controls">
     <div class="tab-group" id="tabs">
-      <button class="tab tab-nagumo active" onclick="setAba('NAGUMO',this)">NAGUMO</button>
-      <button class="tab tab-mixter" onclick="setAba('MIXTER',this)">MIXTER</button>
-      <button class="tab tab-epi" onclick="setAba('EPI',this)">EPI</button>
-      <button class="tab tab-supr" onclick="setAba('SUPRIMENTOS',this)">SUPRIMENTOS</button>
-      <button class="tab tab-todos" onclick="setAba('TODOS',this)">Todos</button>
+      <button class="tab active" onclick="setAba('NAGUMO',this)">NAGUMO</button>
+      <button class="tab" onclick="setAba('MIXTER',this)">MIXTER</button>
+      <button class="tab" onclick="setAba('TODOS',this)">Todos</button>
     </div>
-    <!-- Busca mobile (visível apenas em telas <480px) -->
     <div class="search-wrap">
       <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
         <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
         <path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      <input type="text" placeholder="Buscar..." oninput="document.getElementById('search').value=this.value;render()">
+      <input type="text" id="search" placeholder="Buscar por descricao ou PLU..." oninput="render()">
     </div>
     <select class="filter-sel" id="filtro" onchange="render()">
       <option value="todos">Todos os itens</option>
@@ -404,7 +346,7 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
       <div style="padding:1rem 1.5rem 0">
         <div class="field-row-2">
           <div class="field-group"><label>Loja</label>
-            <select id="mAba"><option value="NAGUMO">NAGUMO</option><option value="MIXTER">MIXTER</option><option value="EPI">EPI</option><option value="SUPRIMENTOS">SUPRIMENTOS</option></select>
+            <select id="mAba"><option value="NAGUMO">NAGUMO</option><option value="MIXTER">MIXTER</option></select>
           </div>
           <div class="field-group"><label>PLU</label>
             <input type="number" id="mPlu" placeholder="Ex: 234183">
@@ -666,7 +608,7 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
         <div id="importConfig" style="display:none;margin-top:1rem">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.75rem">
             <div class="opt-group"><label>Loja destino</label>
-              <select id="importAba"><option value="NAGUMO">NAGUMO</option><option value="MIXTER">MIXTER</option><option value="EPI">EPI</option><option value="SUPRIMENTOS">SUPRIMENTOS</option></select>
+              <select id="importAba"><option value="NAGUMO">NAGUMO</option><option value="MIXTER">MIXTER</option></select>
             </div>
             <div class="opt-group"><label>Separador de colunas</label>
               <select id="importSep" onchange="reparseCSV()">
@@ -717,6 +659,22 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
         <div class="result-box" id="restoreResult"></div>
       </div>
 
+      <!-- SECTION: Zerar dados -->
+      <div style="padding:1.25rem 1.5rem">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:32px;height:32px;background:var(--red-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M2 4h10M5 4V2.5h4V4M5.5 6.5v4M8.5 6.5v4M3 4l.5 7.5h7L11 4" stroke="var(--red)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--text)">Zerar todos os dados</div>
+              <div style="font-size:11px;color:var(--text3)">Remove tudo e volta para os dados de exemplo. N&#227;o pode ser desfeito.</div>
+            </div>
+          </div>
+          <button class="btn-save red-btn" onclick="resetDefault()" style="white-space:nowrap;flex-shrink:0">Zerar dados</button>
+        </div>
+      </div>
+
     </div>
     <div class="modal-foot" style="justify-content:space-between;align-items:center">
       <span style="font-size:11px;color:var(--text3)" id="backupFootInfo"></span>
@@ -740,7 +698,7 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
       <!-- Qual loja -->
       <div>
         <div style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">&#127978; Qual loja?</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
           <label style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:12px;font-weight:600;transition:all .15s" id="rLabelTodas">
             <input type="radio" name="rLoja" id="rLojaTodas" value="TODAS" checked style="display:none" onchange="styleRadios()">
             <span style="font-size:18px">&#127968;</span> Todas
@@ -752,14 +710,6 @@ tbody tr.row-alert:hover td{background:#ffe8ed!important}
           <label style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:12px;font-weight:600;transition:all .15s" id="rLabelMixter">
             <input type="radio" name="rLoja" id="rLojaMixter" value="MIXTER" style="display:none" onchange="styleRadios()">
             <span style="font-size:18px">&#128994;</span> MIXTER
-          </label>
-          <label style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:12px;font-weight:600;transition:all .15s" id="rLabelEpi">
-            <input type="radio" name="rLoja" id="rLojaEpi" value="EPI" style="display:none" onchange="styleRadios()">
-            <span style="font-size:18px">&#9877;&#65039;</span> EPI
-          </label>
-          <label style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:12px;font-weight:600;transition:all .15s" id="rLabelSuprimentos">
-            <input type="radio" name="rLoja" id="rLojaSuprimentos" value="SUPRIMENTOS" style="display:none" onchange="styleRadios()">
-            <span style="font-size:18px">&#128230;</span> SUPRIM.
           </label>
         </div>
       </div>
@@ -868,221 +818,74 @@ var DEFDATA = {
     {plu:94201,desc:"CAMISA MANGA CURTA MIXTER M",est1:35,loc1:"RACK A",estFora:10,loc2:"DEPOSITO"},
     {plu:94202,desc:"CAMISA MANGA CURTA MIXTER G",est1:12,loc1:"RACK A",estFora:0,loc2:"DEPOSITO"},
     {plu:95000,desc:"AVENTAL MIXTER AZUL UNI",est1:6,loc1:"PRATELEIRA",estFora:2,loc2:"DEPOSITO"}
-  ],
-  EPI:[
-    {plu:301001,desc:"CAPACETE DE SEGURANCA BRANCO",est1:45,loc1:"PRATELEIRA EPI",estFora:10,loc2:"DEPOSITO"},
-    {plu:301002,desc:"CAPACETE DE SEGURANCA AMARELO",est1:30,loc1:"PRATELEIRA EPI",estFora:5,loc2:"DEPOSITO"},
-    {plu:302010,desc:"OCULOS DE PROTECAO INCOLOR",est1:60,loc1:"PRATELEIRA EPI",estFora:20,loc2:"DEPOSITO"},
-    {plu:302011,desc:"OCULOS DE PROTECAO FUMÊ",est1:25,loc1:"PRATELEIRA EPI",estFora:8,loc2:"DEPOSITO"},
-    {plu:303020,desc:"LUVA RASPA VAQUETA PAR",est1:18,loc1:"BALCAO EPI",estFora:0,loc2:"DEPOSITO"},
-    {plu:303021,desc:"LUVA LATEX PUNOCHETEIRA PAR",est1:12,loc1:"BALCAO EPI",estFora:5,loc2:"DEPOSITO"},
-    {plu:304030,desc:"BOTINA BICO DE ACO 38",est1:8,loc1:"RACK EPI",estFora:0,loc2:"DEPOSITO"},
-    {plu:304031,desc:"BOTINA BICO DE ACO 40",est1:6,loc1:"RACK EPI",estFora:2,loc2:"DEPOSITO"},
-    {plu:304032,desc:"BOTINA BICO DE ACO 42",est1:4,loc1:"RACK EPI",estFora:0,loc2:"DEPOSITO"},
-    {plu:305040,desc:"PROTETOR AURICULAR ESPUMA CX",est1:50,loc1:"PRATELEIRA EPI",estFora:15,loc2:"DEPOSITO"}
-  ],
-  SUPRIMENTOS:[
-    {plu:401001,desc:"PAPEL A4 75G RESMA",est1:80,loc1:"ESTOQUE SUP",estFora:20,loc2:"DEPOSITO"},
-    {plu:401002,desc:"CANETA ESFEROGRAFICA AZUL CX",est1:15,loc1:"BALCAO SUP",estFora:5,loc2:"DEPOSITO"},
-    {plu:401003,desc:"CANETA ESFEROGRAFICA PRETA CX",est1:10,loc1:"BALCAO SUP",estFora:3,loc2:"DEPOSITO"},
-    {plu:402010,desc:"FITA ADESIVA LARGA ROLO",est1:25,loc1:"PRATELEIRA SUP",estFora:10,loc2:"DEPOSITO"},
-    {plu:402011,desc:"FITA CREPE ROLO",est1:18,loc1:"PRATELEIRA SUP",estFora:6,loc2:"DEPOSITO"},
-    {plu:403020,desc:"TONER IMPRESSORA HP CX",est1:5,loc1:"ARMARIO SUP",estFora:2,loc2:"DEPOSITO"},
-    {plu:403021,desc:"PAPEL TOALHA PCT",est1:30,loc1:"ESTOQUE SUP",estFora:10,loc2:"DEPOSITO"},
-    {plu:404030,desc:"SABAO LIQUIDO GALAO",est1:12,loc1:"ESTOQUE SUP",estFora:4,loc2:"DEPOSITO"},
-    {plu:404031,desc:"ALCOOL 70% GALAO",est1:8,loc1:"ESTOQUE SUP",estFora:2,loc2:"DEPOSITO"},
-    {plu:405040,desc:"SACO DE LIXO 100L PCT",est1:20,loc1:"PRATELEIRA SUP",estFora:8,loc2:"DEPOSITO"}
   ]
 };
 
-// ── GOOGLE SHEETS INTEGRATION ────────────────────────────────────────
+// ── GOOGLE SHEETS ──────────────────────────────────────────
 var GS_URL = 'https://script.google.com/macros/s/AKfycbw1KjfoXhkWrngRQMo_RRnIRnNxcXsfg56Qk6KxiYDktP3oG7uz0WS07iVUlTybqgBf/exec';
 var saveTimer = null;
-var syncQueue = [];
-var isSyncing = false;
 
 function setSaveInd(status) {
-  var txt = document.getElementById('saveIndText');
-  var spin = document.getElementById('syncSpinner');
-  if (!txt) return;
-  if (status === 'saving') {
-    spin.style.display = 'block';
-    txt.textContent = ' sincronizando...';
-    document.getElementById('saveInd').style.color = 'rgba(255,255,255,.6)';
-  } else if (status === 'ok') {
-    spin.style.display = 'none';
-    txt.textContent = ' \u2713 sincronizado';
-    document.getElementById('saveInd').style.color = 'var(--cyan)';
-    setTimeout(function(){ txt.textContent = ' \u25cf salvo'; document.getElementById('saveInd').style.color = ''; }, 2500);
-  } else if (status === 'error') {
-    spin.style.display = 'none';
-    txt.textContent = ' \u26a0 erro ao salvar';
-    document.getElementById('saveInd').style.color = '#ffb3b3';
-  } else {
-    spin.style.display = 'none';
-    txt.textContent = ' \u25cf salvo';
-    document.getElementById('saveInd').style.color = '';
-  }
+  var el = document.getElementById('saveInd');
+  if (!el) return;
+  if (status==='saving') { el.textContent = '⏳ sincronizando...'; el.style.color='rgba(255,255,255,.6)'; }
+  else if (status==='ok') { el.textContent='✓ sincronizado'; el.style.color='var(--cyan)'; setTimeout(function(){ el.textContent='● salvo'; el.style.color=''; },2500); }
+  else if (status==='error') { el.textContent='⚠ sem conexao'; el.style.color='#ffb3b3'; }
+  else { el.textContent='● salvo'; el.style.color=''; }
 }
 
-// Envia dados ao Google Apps Script
 function gsRequest(params, callback) {
-
-  // LEITURA: GET normal — funciona sempre
-  if (params.action === 'load') {
-    fetch(GS_URL + '?action=load')
-      .then(function(r){ return r.text(); })
-      .then(function(txt){ if(callback) callback(null, JSON.parse(txt)); })
-      .catch(function(err){ if(callback) callback(err); });
-    return;
-  }
-
-  // ESCRITA: usa form POST via fetch com mode no-cors
-  // no-cors não retorna resposta mas executa o script no servidor
-  var formData = new FormData();
-  Object.keys(params).forEach(function(k){
-    var v = typeof params[k] === 'object' ? JSON.stringify(params[k]) : String(params[k]);
-    formData.append(k, v);
-  });
-
-  fetch(GS_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: formData
-  })
-  .then(function(){
-    // no-cors nunca retorna body — considera ok e chama callback
-    if (callback) callback(null, { ok: true });
-  })
-  .catch(function(err){
-    if (callback) callback(err);
-  });
-}
-
-// Converte nomes internos do HTML para nomes das colunas do Google Sheets
-function toSheetFormat(rows) {
-  return rows.map(function(r){
-    return {
-      plu:        r.plu,
-      descricao:  r.desc,
-      estoque1:   r.est1,
-      local1:     r.loc1,
-      estoqueFora:r.estFora,
-      local2:     r.loc2,
-      limite:     r.limite !== undefined ? r.limite : LIMITE
-    };
-  });
-}
-
-// Converte nomes das colunas do Google Sheets → nomes internos do HTML
-function fromSheetFormat(rows) {
-  return rows.map(function(r){
-    return {
-      plu:     parseInt(r.plu)||0,
-      desc:    String(r.descricao||r.desc||''),
-      est1:    parseInt(r.estoque1 !== undefined ? r.estoque1 : r.est1)||0,
-      loc1:    String(r.local1||r.loc1||'PENDENTE'),
-      estFora: parseInt(r.estoqueFora !== undefined ? r.estoqueFora : r.estFora)||0,
-      loc2:    String(r.local2||r.loc2||'PENDENTE'),
-      limite:  parseInt(r.limite)||LIMITE
-    };
-  }).filter(function(r){ return r.plu && r.desc; });
-}
-
-// Salva uma aba no Google Sheets
-function gsSaveSheet(aba, dados, callback) {
-  gsRequest({ action: 'saveSheet', aba: aba, dados: toSheetFormat(dados) }, callback);
-}
-
-// Salva endereços no Google Sheets
-function gsSaveLocs(locsData, callback) {
-  gsRequest({ action: 'saveLocs', dados: locsData }, callback);
-}
-
-// saveData: salva no localStorage E agenda sync com Sheets
-function saveData(abasModificadas) {
-  // sempre salva local primeiro (segurança)
-  try { localStorage.setItem(SKEY, JSON.stringify(data)); } catch(e) {}
-
-  // agenda sync após 1.5s de inatividade (evita muitas chamadas ao digitar)
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(function(){
-    syncToSheets(abasModificadas || Object.keys(data));
-  }, 1500);
-}
-
-function syncToSheets(abas) {
-  setSaveInd('saving');
-  var pending = abas.slice();
-  var erros = 0;
-
-  function next() {
-    if (!pending.length) {
-      setSaveInd(erros ? 'error' : 'ok');
-      return;
-    }
-    var aba = pending.shift();
-    if (!data[aba]) { next(); return; }
-    gsSaveSheet(aba, data[aba], function(err) {
-      if (err) erros++;
-      next();
-    });
-  }
-  next();
-}
-
-// Carrega todos os dados do Google Sheets na inicialização
-function loadFromSheets(callback) {
-  setSaveInd('saving');
-  fetch(GS_URL + '?action=load', { method: 'GET', redirect: 'follow' })
-    .then(function(r){ return r.json(); })
-    .then(function(res){
-      if (res.NAGUMO && res.MIXTER) {
-        // converte tipos numéricos vindos do Sheets
-        var abas = ['NAGUMO','MIXTER','EPI','SUPRIMENTOS'];
-        abas.forEach(function(aba){
-          var src = res[aba] || [];
-          data[aba] = fromSheetFormat(src);
-        });
-        // carrega endereços
-        if (res.ENDERECOS && res.ENDERECOS.length) {
-          locs = res.ENDERECOS.map(function(l){
-            return {
-              id:   parseInt(l.id)||0,
-              dep:  String(l.dep||'1'),
-              type: String(l.type||'outro'),
-              code: String(l.code||'—'),
-              desc: String(l.desc||'')
-            };
-          }).filter(function(l){ return l.code && l.code !== '—'; });
-          locIdSeq = locs.reduce(function(m,l){ return Math.max(m,l.id); },0)+1;
-        }
-        // também salva local como cache
-        try { localStorage.setItem(SKEY, JSON.stringify(data)); } catch(e) {}
-        setSaveInd('ok');
-        callback(null);
-      } else {
-        throw new Error('Dados inválidos');
-      }
+  var qs = Object.keys(params).map(function(k){
+    var v = typeof params[k]==='object' ? JSON.stringify(params[k]) : String(params[k]);
+    return encodeURIComponent(k)+'='+encodeURIComponent(v);
+  }).join('&');
+  fetch(GS_URL+'?'+qs)
+    .then(function(r){ return r.text(); })
+    .then(function(txt){
+      try { if(callback) callback(null,JSON.parse(txt)); }
+      catch(e){ if(params.action!=='load'){if(callback)callback(null,{ok:true});}else{if(callback)callback(new Error('resp invalida'));} }
     })
-    .catch(function(err){
-      // fallback: carrega do localStorage se Sheets falhar
-      console.warn('Google Sheets indisponível, usando cache local:', err);
-      setSaveInd('error');
-      callback(err);
-    });
+    .catch(function(err){ if(callback) callback(err); });
 }
 
-// loadData: lê do localStorage como cache inicial (será sobrescrito pelo Sheets)
+function toSheetFmt(rows) {
+  return rows.map(function(r){ return {plu:r.plu,descricao:r.desc,estoque1:r.est1,local1:r.loc1,estoqueFora:r.estFora,local2:r.loc2,limite:r.limite||LIMITE}; });
+}
+function fromSheetFmt(rows) {
+  return rows.map(function(r){ return {plu:parseInt(r.plu)||0,desc:String(r.descricao||r.desc||''),est1:parseInt(r.estoque1!==undefined?r.estoque1:r.est1)||0,loc1:String(r.local1||r.loc1||'PENDENTE'),estFora:parseInt(r.estoqueFora!==undefined?r.estoqueFora:r.estFora)||0,loc2:String(r.local2||r.loc2||'PENDENTE'),limite:parseInt(r.limite)||LIMITE}; }).filter(function(r){ return r.plu&&r.desc; });
+}
+
+function saveData(abas) {
+  try { localStorage.setItem(SKEY,JSON.stringify(data)); } catch(e){}
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(function(){
+    setSaveInd('saving');
+    var pending=(abas||Object.keys(data)).slice(); var erros=0;
+    function next(){
+      if(!pending.length){setSaveInd(erros?'error':'ok');return;}
+      var aba=pending.shift(); if(!data[aba]){next();return;}
+      gsRequest({action:'saveSheet',aba:aba,dados:toSheetFmt(data[aba])},function(err){if(err)erros++;next();});
+    }
+    next();
+  },1500);
+}
+
+function loadFromSheets(cb) {
+  setSaveInd('saving');
+  gsRequest({action:'load'},function(err,res){
+    if(err||!res||!res.NAGUMO){setSaveInd('error');cb(err||new Error('sem dados'));return;}
+    ['NAGUMO','MIXTER','EPI','SUPRIMENTOS'].forEach(function(a){data[a]=fromSheetFmt(res[a]||[]);});
+    if(res.ENDERECOS&&res.ENDERECOS.length){
+      locs=res.ENDERECOS.map(function(l){return{id:parseInt(l.id)||0,dep:String(l.dep||'1'),type:String(l.type||'outro'),code:String(l.code||'-'),desc:String(l.desc||'')};}).filter(function(l){return l.code&&l.code!=='-';});
+      locIdSeq=locs.reduce(function(m,l){return Math.max(m,l.id);},0)+1;
+    }
+    try{localStorage.setItem(SKEY,JSON.stringify(data));}catch(e){}
+    setSaveInd('ok');cb(null);
+  });
+}
+
 function loadData() {
-  try {
-    var s = localStorage.getItem(SKEY);
-    if (s) { var p = JSON.parse(s); if (p.NAGUMO && p.MIXTER) {
-      if (!p.EPI) p.EPI = JSON.parse(JSON.stringify(DEFDATA.EPI));
-      if (!p.SUPRIMENTOS) p.SUPRIMENTOS = JSON.parse(JSON.stringify(DEFDATA.SUPRIMENTOS));
-      return p;
-    }}
-  } catch(e) {}
+  try{var s=localStorage.getItem(SKEY);if(s){var p=JSON.parse(s);if(p.NAGUMO&&p.MIXTER)return p;}}catch(e){}
   return JSON.parse(JSON.stringify(DEFDATA));
 }
 
@@ -1123,7 +926,7 @@ function getRows() {
 
 // ── METRICS ───────────────────────────────────────────────────────────
 function updateMetrics() {
-  var all = data.NAGUMO.concat(data.MIXTER).concat(data.EPI).concat(data.SUPRIMENTOS);
+  var all = data.NAGUMO.concat(data.MIXTER);
   var total = all.length;
   var alertas = all.filter(needsRepor).length;
   var saldoTotal = all.reduce(function(s,r){ return s+getSaldo(r); }, 0);
@@ -1132,14 +935,12 @@ function updateMetrics() {
     return '<div class="metric-card '+cls+'"><div class="metric-icon-wrap">'+icon+'</div><div class="metric-label">'+label+'</div><div class="metric-val">'+val+'</div><div class="metric-sub">'+sub+'</div></div>';
   }
   document.getElementById('metrics').innerHTML =
-    mc('mc-navy','&#128230;','Total de produtos',total,'todas as categorias')+
+    mc('mc-navy','&#128230;','Total de produtos',total,'NAGUMO + MIXTER')+
     mc('mc-navy','&#127978;','NAGUMO',data.NAGUMO.length,'produtos cadastrados')+
     mc('mc-cyan','&#128084;','MIXTER',data.MIXTER.length,'produtos cadastrados')+
-    mc('mc-amber','&#9877;&#65039;','EPI',data.EPI.length,'produtos cadastrados')+
-    mc('mc-green','&#128230;','SUPRIMENTOS',data.SUPRIMENTOS.length,'produtos cadastrados')+
     mc('mc-red','&#9888;&#65039;','Repor agora',alertas,pctAlert+'% do total &middot; saldo &le; limite')+
     mc('mc-green','&#10003;','Estoque OK',(total-alertas),'acima do limite de reposicao')+
-    mc('mc-black','&#128200;','Total em estoque',saldoTotal.toLocaleString('pt-BR'),'unidades (Dep.1 + Dep.2)');
+    mc('mc-amber','&#128200;','Total em estoque',saldoTotal.toLocaleString('pt-BR'),'unidades (Dep.1 + Dep.2)');
 }
 
 // ── RENDER TABLE ──────────────────────────────────────────────────────
@@ -1155,7 +956,7 @@ function render() {
     var s = getSaldo(r);
     var rep = needsRepor(r);
     var badge = rep ? '<span class="badge badge-sim">\u25cf SIM</span>' : '<span class="badge badge-nao">\u2713 OK</span>';
-    var tag = abaAtiva==='TODOS' ? '<span class="aba-tag" style="background:'+(r.aba==='NAGUMO'?'var(--navy)':r.aba==='MIXTER'?'var(--cyan)':r.aba==='EPI'?'#7C3AED':'var(--green)')+';color:'+(r.aba==='NAGUMO'?'#fff':r.aba==='MIXTER'?'var(--navy)':'#fff')+'">'+r.aba+'</span>' : '';
+    var tag = abaAtiva==='TODOS' ? '<span class="aba-tag" style="background:'+(r.aba==='NAGUMO'?'var(--navy)':'var(--cyan)')+';color:'+(r.aba==='NAGUMO'?'#fff':'var(--navy)')+'">'+r.aba+'</span>' : '';
     return '<tr class="'+(rep?'row-alert':'')+'">'+
       '<td class="plu">'+r.plu+'</td>'+
       '<td class="desc-cell">'+r.desc+tag+'</td>'+
@@ -1540,7 +1341,7 @@ var TYPE_LABELS = {prateleira:'Prateleira',palete:'Palete',mesa:'Mesa',gondola:'
 var TYPE_CSS    = {prateleira:'lt-prateleira',palete:'lt-palete',mesa:'lt-mesa',gondola:'lt-gondola',cabide:'lt-cabide',rack:'lt-rack',outro:'lt-outro'};
 
 function loadLocs() {
-  try { var s=localStorage.getItem(LSKEY_LOCS); if(s) { var p=JSON.parse(s); if(p.length) return p; } } catch(e){}
+  try { var s=localStorage.getItem(LSKEY_LOCS); if(s) return JSON.parse(s); } catch(e){}
   return [
     {id:1,dep:'1',type:'prateleira',code:'RUA 2 P16',desc:'Corredor 2, posicao 16'},
     {id:2,dep:'1',type:'prateleira',code:'RUA 2 P15',desc:'Corredor 2, posicao 15'},
@@ -1557,14 +1358,11 @@ function loadLocs() {
 }
 function saveLocs() {
   try { localStorage.setItem(LSKEY_LOCS, JSON.stringify(locs)); } catch(e){}
-  // sync endereços ao Sheets
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(function(){
+  saveTimer=setTimeout(function(){
     setSaveInd('saving');
-    gsSaveLocs(locs, function(err){
-      setSaveInd(err ? 'error' : 'ok');
-    });
-  }, 1500);
+    gsRequest({action:'saveLocs',dados:locs},function(err){setSaveInd(err?'error':'ok');});
+  },1500);
 }
 var locs = loadLocs();
 var locIdSeq = locs.reduce(function(m,l){ return Math.max(m,l.id); },0)+1;
@@ -1758,18 +1556,16 @@ function generateReport() {
   var mostrarLim  = document.getElementById('rMostrarLim').checked;
 
   // Build dataset
-  var srcNagumo = (lojaFiltro !== 'TODAS' && lojaFiltro !== 'NAGUMO') ? [] : data.NAGUMO.map(function(r){ return Object.assign({},r,{aba:'NAGUMO'}); });
-  var srcMixter = (lojaFiltro !== 'TODAS' && lojaFiltro !== 'MIXTER') ? [] : data.MIXTER.map(function(r){ return Object.assign({},r,{aba:'MIXTER'}); });
-  var srcEpi    = (lojaFiltro !== 'TODAS' && lojaFiltro !== 'EPI')    ? [] : data.EPI.map(function(r){ return Object.assign({},r,{aba:'EPI'}); });
-  var srcSupr   = (lojaFiltro !== 'TODAS' && lojaFiltro !== 'SUPRIMENTOS') ? [] : data.SUPRIMENTOS.map(function(r){ return Object.assign({},r,{aba:'SUPRIMENTOS'}); });
-  var all = srcNagumo.concat(srcMixter).concat(srcEpi).concat(srcSupr);
+  var srcNagumo = lojaFiltro === 'MIXTER' ? [] : data.NAGUMO.map(function(r){ return Object.assign({},r,{aba:'NAGUMO'}); });
+  var srcMixter = lojaFiltro === 'NAGUMO' ? [] : data.MIXTER.map(function(r){ return Object.assign({},r,{aba:'MIXTER'}); });
+  var all = srcNagumo.concat(srcMixter);
 
   var lista;
   if (tipoRel === 'repor') lista = all.filter(needsRepor);
   else if (tipoRel === 'ok') lista = all.filter(function(r){ return !needsRepor(r); });
   else lista = all;
 
-  var allGlobal = data.NAGUMO.concat(data.MIXTER).concat(data.EPI).concat(data.SUPRIMENTOS);
+  var allGlobal = data.NAGUMO.concat(data.MIXTER);
   var alertasTotal = allGlobal.filter(needsRepor).length;
   var saldoTotal = allGlobal.reduce(function(s,r){ return s+getSaldo(r); }, 0);
 
@@ -1780,7 +1576,7 @@ function generateReport() {
   function pct(n,d){ return d===0?'0':Math.round(n/d*100)+'%'; }
 
   var tipoLabel = tipoRel==='repor' ? 'Itens para Repor' : tipoRel==='ok' ? 'Estoque OK' : 'Posicao Completa';
-  var lojaLabel = lojaFiltro==='TODAS' ? 'Todas as Categorias' : lojaFiltro;
+  var lojaLabel = lojaFiltro==='TODAS' ? 'NAGUMO + MIXTER' : lojaFiltro;
 
   // Table columns
   var cols = [];
@@ -1834,11 +1630,9 @@ function generateReport() {
       if(c.k==='saldo') val = s;
       else if(c.k==='limite') val = r.limite||40;
       else if(c.k==='plu') val = '<span style="font-family:monospace;font-size:10px;color:#888;background:#f0f3f7;padding:1px 4px;border-radius:3px">'+r.plu+'</span>';
-      else if(c.k==='aba') {
-        var abaColors = {NAGUMO:['#023665','#fff'],MIXTER:['#3CCBDB','#023665'],EPI:['#7C3AED','#fff'],SUPRIMENTOS:['#0e7c4a','#fff']};
-        var ac = abaColors[r.aba]||['#888','#fff'];
-        val = '<span style="background:'+ac[0]+';color:'+ac[1]+';padding:1px 6px;border-radius:10px;font-size:9px;font-weight:700">'+r.aba+'</span>';
-      }
+      else if(c.k==='aba') val = r.aba==='NAGUMO'
+        ? '<span style="background:#023665;color:#fff;padding:1px 6px;border-radius:10px;font-size:9px;font-weight:700">NAGUMO</span>'
+        : '<span style="background:#3CCBDB;color:#023665;padding:1px 6px;border-radius:10px;font-size:9px;font-weight:700">MIXTER</span>';
       else val = r[c.k]||'—';
       return '<td style="'+tdStyle(c, rep)+'">'+val+'</td>';
     }).join('')+'</tr>';
@@ -1919,14 +1713,11 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape'){closeModal
 function styleRadios(){
   var loja = document.querySelector('input[name="rLoja"]:checked');
   var tipo = document.querySelector('input[name="rTipo"]:checked');
-  var lojaVal = loja ? loja.value : 'TODAS';
-  var lojaLabel = lojaVal==='TODAS'?'Todas':lojaVal==='NAGUMO'?'Nagumo':lojaVal==='MIXTER'?'Mixter':lojaVal==='EPI'?'Epi':'Suprimentos';
-  ['rLabelTodas','rLabelNagumo','rLabelMixter','rLabelEpi','rLabelSuprimentos'].forEach(function(id){
+  ['rLabelTodas','rLabelNagumo','rLabelMixter'].forEach(function(id){
     var el=document.getElementById(id);
     if(!el)return;
-    var active = id==='rLabel'+lojaLabel;
-    el.style.borderColor=active?'var(--navy)':'var(--border)';
-    el.style.background=active?'var(--navy-light)':'';
+    el.style.borderColor=el.id==='rLabel'+((loja&&loja.value==='TODAS')?'Todas':(loja&&loja.value==='NAGUMO')?'Nagumo':'Mixter') ? 'var(--navy)' : 'var(--border)';
+    el.style.background=el.id==='rLabel'+((loja&&loja.value==='TODAS')?'Todas':(loja&&loja.value==='NAGUMO')?'Nagumo':'Mixter') ? 'var(--navy-light)' : '';
   });
   ['rLabelRepor','rLabelTodos','rLabelOk'].forEach(function(id){
     var el=document.getElementById(id);
@@ -1940,22 +1731,14 @@ document.getElementById('reportOverlay').addEventListener('click',function(e){if
 document.getElementById('editLocOverlay').addEventListener('click',function(e){if(e.target===this)closeEditLoc();});
 document.getElementById('topDate').textContent=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});
 
-// Inicialização: tenta carregar do Google Sheets, renderiza com cache enquanto isso
-render(); // renderiza cache local imediatamente (UX instantâneo)
-
-// Mostra banner de carregamento
+render();
 toast('\u2601 Sincronizando com Google Sheets...');
-
 loadFromSheets(function(err){
-  if (err) {
-    toast('\u26a0 Sem conexão com Sheets. Usando dados locais.');
-  } else {
-    // aplica limite padrão nos registros que não têm
-    Object.keys(data).forEach(function(aba){
-      data[aba].forEach(function(r){ if (r.limite === undefined) r.limite = LIMITE; });
-    });
-    render(); // re-renderiza com dados do Sheets
-    toast('\u2713 Dados sincronizados com Google Sheets!');
+  if(err){ toast('\u26a0 Sem conexao com Sheets. Usando dados locais.'); }
+  else{
+    Object.keys(data).forEach(function(a){data[a].forEach(function(r){if(r.limite===undefined)r.limite=LIMITE;});});
+    render();
+    toast('\u2713 Sincronizado com Google Sheets!');
   }
 });
 </script>
